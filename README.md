@@ -1,31 +1,41 @@
 # Cloudflare Turnstile
 
-Official **PeltyCMS** `captcha` WASM addon (`captcha-turnstile`).
+Stop bots on PeltyCMS forms with Cloudflare Turnstile
 
-## Install
+Official **captcha / bot protection** for [PeltyCMS](https://github.com/MythicalLTD/PeltyCMS) — identifier `captcha-turnstile`.
 
-1. Open Pelty Admin → Addons → Marketplace
-2. Set registry URL to `https://market.mythicalsystems.org/api/pelty/addons/registry.json`
-3. Download **Cloudflare Turnstile**
+## Why this addon
 
-Marketplace: https://market.mythicalsystems.org/marketplace/product/captcha-turnstile  
-Product ID (CI): `46`
+Anyone tired of spam accounts and bot ticket floods.
 
-## Develop
+## Features
 
-This repository is a git submodule of [MythicalLTD/PeltyCMS](https://github.com/MythicalLTD/PeltyCMS) at `extensions/addons/captcha-turnstile`.
+- Protect login, register, tickets and checkout with **Cloudflare Turnstile**
+- Server-side verification inside the WASM captcha addon
+- Site keys configured once in Pelty settings
+- No theme PHP hacks
 
-```bash
-# from the PeltyCMS monorepo
-cargo xtask addons captcha-turnstile
-```
+## How it works
 
-## Release (Mythic Marketplace)
+1. Install **Cloudflare Turnstile** from the [Mythical marketplace](https://market.mythicalsystems.org/marketplace/product/captcha-turnstile) (or Pelty Admin → Addons → Marketplace).
+2. Open Pelty Admin and enter your Cloudflare Turnstile credentials in the addon settings.
+3. Attach it to the products / forms / login flows you care about.
+4. New orders and sign-ins use Cloudflare Turnstile automatically.
 
-Same flow as [featherpanel-com/PterodactylPanelApi](https://github.com/featherpanel-com/PterodactylPanelApi):
+## Requirements
 
-1. Repo secrets: `MYTHIC_PRODUCT_ID`, `MYTHIC_RELEASE_TOKEN`
-2. Repo variable: `ADDON_DIR=captcha-turnstile`
-3. Actions → **Release Addon** → Run workflow
+- A running PeltyCMS panel with WASM addons enabled
+- Valid Cloudflare Turnstile API / OAuth / panel credentials (depending on the integration)
+- Outbound HTTPS from the panel to Cloudflare Turnstile
 
-Publishes the packed `captcha-turnstile.zip` via `MythicalLTD/.github/actions/publish-release@v1` and creates a GitHub Release.
+## Get it
+
+[Cloudflare Turnstile on Mythical Marketplace](https://market.mythicalsystems.org/marketplace/product/captcha-turnstile)
+
+Free official build. Source for this package lives in this repository.
+
+## Support
+
+- Marketplace product page: https://market.mythicalsystems.org/marketplace/product/captcha-turnstile
+- PeltyCMS core: https://github.com/MythicalLTD/PeltyCMS
+- Issues for this addon: use this repo’s Issues tab
